@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Proposal</title>
+    <meta name="description" content="Lovable Generated Project" />
+    <meta name="author" content="Lovable" />
+    <meta property="og:image" content="/og-image.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        font-family: 'Dancing Script', cursive;
+      }
+
+      .scene-container {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to bottom right, #fce7f3, #e9d5ff);
+        overflow: hidden;
+      }
+
+      .petal {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.6;
+        animation: flyPetal 10s linear infinite;
+      }
+
+      .image-container {
+        position: relative;
+        width: 100%;
+        max-width: 42rem;
+        height: 24rem;
+        margin-bottom: 2rem;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .proposal-image {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 16rem;
+        object-fit: contain;
+        z-index: 10;
+      }
+
+      .love-text {
+        font-size: clamp(1.875rem, 5vw, 3rem);
+        color: #6b21a8;
+        text-align: center;
+        padding: 0 1rem;
+        z-index: 20;
+        animation: fadeIn 2s ease-in forwards;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+      }
+
+      @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes flyPetal {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scene-container">
+      <div id="petals"></div>
+      <div class="image-container">
+        <img 
+          src="/C:\Users\swaga\Downloads/1738928037399-removebg-preview.png"
+          alt="proposal silhouette"
+          class="proposal-image"
+        />
+      </div>
+      <h1 class="love-text">Happy Propose Day Darlin</h1>
+    </div>
+
+    <script>
+      // Create floating petals
+      const petalsContainer = document.getElementById('petals');
+      for (let i = 0; i < 40; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.top = `${Math.random() * 100}%`;
+        petal.style.left = `${Math.random() * 100}%`;
+        petal.style.animationDelay = `${Math.random() * 5}s`;
+        petal.textContent = Math.random() > 0.5 ? '🌹' : '♥️';
+        petalsContainer.appendChild(petal);
+      }
+    </script>
+  </body>
+</html>
